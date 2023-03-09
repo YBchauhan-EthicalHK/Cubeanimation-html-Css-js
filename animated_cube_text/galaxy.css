@@ -1,0 +1,109 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 60px;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    perspective: 20em;
+    perspective-origin: 77px 100px;
+}
+
+.cube {
+    position: relative;
+    transform-style: preserve-3d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: animate 10s linear infinite ;
+}
+@keyframes animate{
+    to{
+        /* transform: rotateY(270deg); */
+        /* transform: rotateX(360deg); */
+        /* transform: rotateX(180deg); */
+        /* transform: rotateY(180deg); */
+        transform: rotateY(360deg) rotateX(360deg) rotateZ(360deg);
+        transform: rotate3d(360deg);
+    }
+    
+}
+.cube h1{
+    text-align: center;
+    justify-content: center;
+    margin: 20px;
+
+}
+.shadow{
+    position: absolute;
+    background: aqua;
+    width: 2em;
+    height: 2em;
+    transform: 
+    translateZ(-130px)
+    translateX(40px)
+    rotateX(90deg)
+    rotateZ(3deg) ;
+    bottom: 0.8em;
+    /* left: 4em; */
+    box-shadow: 0 120px 100px 10px blue ,
+                20px 120px 200px 10px #fff;
+    filter: blur(100px);
+
+}
+
+.bubble_top,
+.bubble_bottom,
+.bubble_right,
+.bubble_left,
+.bubble_front,
+.bubble_back {
+    height: 2em;
+    width: 2em;
+    background: aqua;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    /* border: 3px solid red; */
+    box-shadow: 0 0 50px 10px blue inset,
+                0 0 0 2em aqua inset;
+
+}
+.bubble_front{
+    transform: translateZ(1em);
+    cursor: pointer;
+    transition: 2s;
+}
+.bubble_back{
+    transform: translateZ(-1em);
+    cursor: pointer;
+    transition: 2s;
+
+}
+.bubble_top{
+    transform: translateY(-1em) rotateX(90deg);
+    cursor: pointer;
+    transition: 2s;
+}
+.bubble_bottom{
+    transform: translateY(1em) rotateX(90deg);
+    cursor: pointer;
+    transition: 2s;
+}
+.bubble_right{
+    transform: translateX(1em) rotateY(90deg);
+    cursor: pointer;
+    transition: 2s;
+}
+.bubble_left{
+    transform: translateX(-1em) rotateY(90deg);
+    cursor: pointer;
+    transition: 2s;
+}
